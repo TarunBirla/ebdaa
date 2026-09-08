@@ -121,23 +121,26 @@
             flex-wrap: wrap;
         }
 
-        /* floating live-signal card — the one bold "AI" moment in the hero */
+        /* floating live-signal card — base styling for slide UI panels */
         .hero-live {
-            background: var(--glass-fill);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(18px);
-            border-radius: var(--radius);
-            padding: 26px 26px 22px;
+            background: rgba(6, 25, 42, 0.75);
+            border: 1px solid rgba(154, 214, 255, 0.22);
+            backdrop-filter: blur(20px);
+            border-radius: var(--radius-lg);
+            padding: 24px 26px 22px;
             color: #fff;
-            max-width: 340px;
-            box-shadow: 0 30px 70px rgba(0, 0, 0, .35);
+            width: 100%;
+            max-width: 360px;
+            justify-self: end;
+            box-shadow: 0 25px 65px rgba(0, 0, 0, .45);
+            transition: all 0.4s ease;
         }
 
         .hero-live .live-head {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
         .hero-live .live-tag {
@@ -145,13 +148,15 @@
             align-items: center;
             gap: 8px;
             font-family: var(--font-mono);
-            font-size: 11.5px;
+            font-size: 11px;
             color: var(--sky);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         .hero-live .live-tag .dot {
-            width: 6px;
-            height: 6px;
+            width: 7px;
+            height: 7px;
             border-radius: 50%;
             background: #5FE39B;
             box-shadow: 0 0 0 3px rgba(95, 227, 155, .25);
@@ -159,59 +164,184 @@
         }
 
         @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: .4;
-            }
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: .4; transform: scale(0.85); }
         }
 
         .hero-live h5 {
             color: #fff;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 2px;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 3px;
         }
 
         .hero-live .sub {
             font-size: 12px;
-            color: rgba(255, 255, 255, .55);
+            color: rgba(255, 255, 255, .6);
             margin-bottom: 16px;
         }
 
         .hero-live .spark {
             width: 100%;
-            height: 46px;
+            height: 48px;
             margin-bottom: 16px;
         }
 
         .hero-live .spark path {
             fill: none;
             stroke: var(--sky);
-            stroke-width: 1.6;
+            stroke-width: 1.8;
         }
 
         .hero-live .row {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            padding: 10px 0;
-            border-top: 1px solid var(--line-on-dark);
+            align-items: center;
+            padding: 9px 0;
+            border-top: 1px solid rgba(255, 255, 255, .1);
         }
 
         .hero-live .row .k {
             font-size: 12.5px;
-            color: rgba(255, 255, 255, .6);
+            color: rgba(255, 255, 255, .65);
         }
 
         .hero-live .row .v {
             font-family: var(--font-mono);
-            font-size: 14px;
+            font-size: 13.5px;
             color: #fff;
+            font-weight: 500;
+        }
+
+        /* Specialized Hero UI Panel Visuals */
+        .knowledge-graph-svg {
+            width: 100%;
+            height: 110px;
+            margin-bottom: 14px;
+            background: rgba(2, 12, 22, 0.45);
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(154, 214, 255, 0.12);
+        }
+
+        .capital-alloc-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .alloc-row {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .alloc-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11.5px;
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .alloc-meta span:last-child {
+            font-family: var(--font-mono);
+            color: var(--sky);
+            font-weight: 500;
+        }
+
+        .alloc-track {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            overflow: hidden;
+        }
+
+        .alloc-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1671C4, #9AD6FF);
+            border-radius: 100px;
+        }
+
+        .risk-gauge-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 14px;
+            background: rgba(2, 12, 22, 0.45);
+            border-radius: var(--radius-sm);
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .risk-meter-svg {
+            width: 58px;
+            height: 58px;
+            flex-shrink: 0;
+        }
+
+        .risk-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .risk-score-badge {
+            font-family: var(--font-mono);
+            font-size: 17px;
+            font-weight: 700;
+            color: #5FE39B;
+        }
+
+        .risk-lbl {
+            font-size: 11.5px;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .banking-chart-svg {
+            width: 100%;
+            height: 80px;
+            margin-bottom: 14px;
+        }
+
+        .workflow-steps-mini {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .wf-step-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 12px;
+        }
+
+        .wf-step-item.active {
+            background: rgba(22, 113, 196, 0.28);
+            border-color: rgba(154, 214, 255, 0.45);
+            color: #fff;
+        }
+
+        .wf-step-num {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--sky);
+            font-weight: 600;
+        }
+
+        .wf-step-name {
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .wf-step-status {
+            font-size: 10px;
+            color: #5FE39B;
+            font-family: var(--font-mono);
         }
 
         .hero-chrome {
@@ -1147,6 +1277,7 @@
     <!-- ===== HERO SLIDER ===== -->
     <section class="hero" id="hero">
 
+        <!-- SLIDE 0: AI Compliance Monitoring Dashboard -->
         <div class="slide active" data-slide="0">
             <div class="slide-bg">
                 <video class="hero-video-bg" autoplay loop muted playsinline
@@ -1174,21 +1305,22 @@
 
                 <div class="hero-live">
                     <div class="live-head">
-                        <div class="live-tag"><span class="dot"></span> IQMS™ LIVE</div>
+                        <div class="live-tag"><span class="dot"></span> IQMS™ COMPLIANCE</div>
                         <i class="fa-solid fa-shield-halved" style="color:#8FC6EC; font-size:13px;"></i>
                     </div>
-                    <h5>Sharia compliance monitoring</h5>
-                    <div class="sub">Across active client mandates</div>
+                    <h5>Sharia Compliance Monitoring</h5>
+                    <div class="sub">Continuous real-time mandate verification</div>
                     <svg class="spark" viewBox="0 0 280 46" preserveAspectRatio="none">
                         <path d="M0 34 L28 30 L56 36 L84 20 L112 24 L140 12 L168 18 L196 8 L224 14 L252 6 L280 10" />
                     </svg>
-                    <div class="row"><span class="k">Compliance rate</span><span class="v">100%</span></div>
-                    <div class="row"><span class="k">Active jurisdictions</span><span class="v">20+</span></div>
-                    <div class="row"><span class="k">Mandates advised</span><span class="v">$45B+</span></div>
+                    <div class="row"><span class="k">Compliance Score</span><span class="v">100.0% Verified</span></div>
+                    <div class="row"><span class="k">Active Scans</span><span class="v">4,820 Nodes/s</span></div>
+                    <div class="row"><span class="k">Audit Trail</span><span class="v">Immutable Ledger</span></div>
                 </div>
             </div>
         </div>
 
+        <!-- SLIDE 1: Neural-Network / Fiqh Knowledge Graph Visualization -->
         <div class="slide" data-slide="1">
             <div class="slide-bg">
                 <div class="layer"
@@ -1210,9 +1342,39 @@
                         <a href="{{ url('/speak-with-us') }}" class="btn ghost-light">Request a Governance Review</a>
                     </div>
                 </div>
+
+                <div class="hero-live">
+                    <div class="live-head">
+                        <div class="live-tag"><span class="dot"></span> SCHOLAR GRAPH v4.2</div>
+                        <i class="fa-solid fa-diagram-project" style="color:#8FC6EC; font-size:13px;"></i>
+                    </div>
+                    <h5>Fiqh Knowledge Graph</h5>
+                    <div class="sub">Neural mapping across 12,000+ Sharia rulings</div>
+                    <svg class="knowledge-graph-svg" viewBox="0 0 280 110">
+                        <line x1="40" y1="30" x2="110" y2="70" stroke="rgba(154, 214, 255, 0.4)" stroke-width="1.5" stroke-dasharray="3,3" />
+                        <line x1="110" y1="70" x2="190" y2="35" stroke="rgba(154, 214, 255, 0.4)" stroke-width="1.5" />
+                        <line x1="190" y1="35" x2="240" y2="80" stroke="rgba(154, 214, 255, 0.4)" stroke-width="1.5" />
+                        <line x1="40" y1="30" x2="190" y2="35" stroke="rgba(154, 214, 255, 0.2)" stroke-width="1" />
+                        <line x1="110" y1="70" x2="240" y2="80" stroke="rgba(154, 214, 255, 0.2)" stroke-width="1" />
+                        
+                        <circle cx="40" cy="30" r="7" fill="#1671C4" stroke="#9AD6FF" stroke-width="2" />
+                        <circle cx="110" cy="70" r="9" fill="#0A3D6B" stroke="#5FE39B" stroke-width="2" />
+                        <circle cx="190" cy="35" r="8" fill="#1671C4" stroke="#9AD6FF" stroke-width="2" />
+                        <circle cx="240" cy="80" r="6" fill="#C5A059" stroke="#fff" stroke-width="2" />
+                        
+                        <text x="40" y="18" fill="rgba(255,255,255,0.7)" font-size="9" font-family="monospace" text-anchor="middle">AAOIFI</text>
+                        <text x="110" y="93" fill="#5FE39B" font-size="9" font-family="monospace" text-anchor="middle">Fatwa Engine</text>
+                        <text x="190" y="22" fill="rgba(255,255,255,0.7)" font-size="9" font-family="monospace" text-anchor="middle">Board Consensus</text>
+                        <text x="240" y="96" fill="rgba(255,255,255,0.7)" font-size="9" font-family="monospace" text-anchor="middle">Audit Ledger</text>
+                    </svg>
+                    <div class="row"><span class="k">Knowledge Rulings</span><span class="v">12,400+ Nodes</span></div>
+                    <div class="row"><span class="k">Graph Resolution</span><span class="v">0.3ms Sync</span></div>
+                    <div class="row"><span class="k">Scholar Consensus</span><span class="v">99.8% Matched</span></div>
+                </div>
             </div>
         </div>
 
+        <!-- SLIDE 2: Sukuk & Capital-Flow Intelligence Panel -->
         <div class="slide" data-slide="2">
             <div class="slide-bg">
                 <div class="layer"
@@ -1234,9 +1396,36 @@
                         <a href="{{ url('/speak-with-us') }}" class="btn ghost-light">Request a Demo</a>
                     </div>
                 </div>
+
+                <div class="hero-live">
+                    <div class="live-head">
+                        <div class="live-tag"><span class="dot"></span> SUKUK ENGINE</div>
+                        <i class="fa-solid fa-coins" style="color:#8FC6EC; font-size:13px;"></i>
+                    </div>
+                    <h5>Capital Flow &amp; Asset Validation</h5>
+                    <div class="sub">Sovereign &amp; corporate Sukuk structuring</div>
+                    <div class="capital-alloc-bars">
+                        <div class="alloc-row">
+                            <div class="alloc-meta"><span>Murabaha Structure</span><span>45%</span></div>
+                            <div class="alloc-track"><div class="alloc-fill" style="width:45%;"></div></div>
+                        </div>
+                        <div class="alloc-row">
+                            <div class="alloc-meta"><span>Ijara Real Estate</span><span>35%</span></div>
+                            <div class="alloc-track"><div class="alloc-fill" style="width:35%; background:linear-gradient(90deg, #1671C4, #5FE39B);"></div></div>
+                        </div>
+                        <div class="alloc-row">
+                            <div class="alloc-meta"><span>Wakala Investment</span><span>20%</span></div>
+                            <div class="alloc-track"><div class="alloc-fill" style="width:20%; background:linear-gradient(90deg, #C5A059, #9AD6FF);"></div></div>
+                        </div>
+                    </div>
+                    <div class="row"><span class="k">Issuance Volume</span><span class="v">$1.25B Sovereign</span></div>
+                    <div class="row"><span class="k">Smart Contract EVM</span><span class="v">0x8F2A...9C41</span></div>
+                    <div class="row"><span class="k">Asset Backing</span><span class="v">100% Tangible</span></div>
+                </div>
             </div>
         </div>
 
+        <!-- SLIDE 3: Sharia Risk-Scoring & Regulatory Interface -->
         <div class="slide" data-slide="3">
             <div class="slide-bg">
                 <div class="layer"
@@ -1257,6 +1446,128 @@
                         <a href="{{ url('/our-firm#locations') }}" class="btn solid">Our Locations</a>
                         <a href="{{ url('/industries') }}" class="btn ghost-light">Explore Industries We Serve</a>
                     </div>
+                </div>
+
+                <div class="hero-live">
+                    <div class="live-head">
+                        <div class="live-tag"><span class="dot"></span> GOVERNANCE RISK</div>
+                        <i class="fa-solid fa-scale-balanced" style="color:#8FC6EC; font-size:13px;"></i>
+                    </div>
+                    <h5>Institutional Sharia Risk Matrix</h5>
+                    <div class="sub">Multi-jurisdictional regulatory audit</div>
+                    <div class="risk-gauge-container">
+                        <svg class="risk-meter-svg" viewBox="0 0 60 60">
+                            <circle cx="30" cy="30" r="24" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="5" />
+                            <circle cx="30" cy="30" r="24" fill="none" stroke="#5FE39B" stroke-width="5" stroke-dasharray="150" stroke-dashoffset="15" transform="rotate(-90 30 30)" />
+                            <text x="30" y="34" fill="#fff" font-size="11" font-weight="700" font-family="monospace" text-anchor="middle">A+</text>
+                        </svg>
+                        <div class="risk-details">
+                            <span class="risk-score-badge">0.02% (LOW RISK)</span>
+                            <span class="risk-lbl">AAOIFI &amp; IFSB Audit Pass</span>
+                        </div>
+                    </div>
+                    <div class="row"><span class="k">UK FCA &amp; DIFC Status</span><span class="v">Grade A+ Certified</span></div>
+                    <div class="row"><span class="k">Cross-Border Tax</span><span class="v">Sharia Compliant</span></div>
+                    <div class="row"><span class="k">Audit Frequency</span><span class="v">Real-Time Sync</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: Islamic Banking & Wealth Analytics Dashboard -->
+        <div class="slide" data-slide="4">
+            <div class="slide-bg">
+                <div class="layer"
+                    style="background-image:url('https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1920&q=80');">
+                </div>
+            </div>
+            <div class="slide-overlay"></div>
+            <svg class="hero-lattice">
+                <rect width="100%" height="100%" fill="url(#latticePattern)" />
+            </svg>
+            <div class="slide-content">
+                <div class="inner">
+                    <span class="eyebrow on-dark">Next-Gen Islamic Fintech &amp; Banking</span>
+                    <h1>Digital-native banking &amp; Sharia intelligence architecture</h1>
+                    <p class="lede">Empowering neobanks, digital asset platforms, and Islamic wealth managers with automated Sharia governance layers.</p>
+                    <div class="slide-actions">
+                        <a href="{{ url('/industries/islamic-banks') }}" class="btn solid">Banking Advisory</a>
+                        <a href="{{ url('/technology') }}" class="btn ghost-light">Explore Tech Platform</a>
+                    </div>
+                </div>
+
+                <div class="hero-live">
+                    <div class="live-head">
+                        <div class="live-tag"><span class="dot"></span> BANKING ANALYTICS</div>
+                        <i class="fa-solid fa-building-columns" style="color:#8FC6EC; font-size:13px;"></i>
+                    </div>
+                    <h5>Islamic Banking Analytics</h5>
+                    <div class="sub">Profit-sharing &amp; liquidity optimization</div>
+                    <svg class="banking-chart-svg" viewBox="0 0 280 80">
+                        <defs>
+                            <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#1671C4" stop-opacity="0.4" />
+                                <stop offset="100%" stop-color="#1671C4" stop-opacity="0" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M0 65 Q 40 40, 80 50 T 160 30 T 240 20 T 280 15 L 280 80 L 0 80 Z" fill="url(#chartGrad)" />
+                        <path d="M0 65 Q 40 40, 80 50 T 160 30 T 240 20 T 280 15" fill="none" stroke="#9AD6FF" stroke-width="2" />
+                        <circle cx="280" cy="15" r="4" fill="#5FE39B" />
+                    </svg>
+                    <div class="row"><span class="k">Profit Share Ratio</span><span class="v">80:20 Mudarabah</span></div>
+                    <div class="row"><span class="k">Liquidity Ratio (LCR)</span><span class="v">142% Compliant</span></div>
+                    <div class="row"><span class="k">Tier-1 Capital Shield</span><span class="v">Sharia Certified</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: AI Governance Workflow & Processing Pipeline -->
+        <div class="slide" data-slide="5">
+            <div class="slide-bg">
+                <div class="layer"
+                    style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80');">
+                </div>
+            </div>
+            <div class="slide-overlay"></div>
+            <svg class="hero-lattice">
+                <rect width="100%" height="100%" fill="url(#latticePattern)" />
+            </svg>
+            <div class="slide-content">
+                <div class="inner">
+                    <span class="eyebrow on-dark">Automated Advisory Pipeline</span>
+                    <h1>End-to-end Sharia governance &amp; Fatwa certification</h1>
+                    <p class="lede">From initial mandate intake to AI rule validation and scholar board sign-off — structured for corporate clarity.</p>
+                    <div class="slide-actions">
+                        <a href="{{ url('/speak-with-us') }}" class="btn solid">Submit Mandate RFP</a>
+                        <a href="{{ url('/proficiencies/sharia-governance') }}" class="btn ghost-light">Governance Framework</a>
+                    </div>
+                </div>
+
+                <div class="hero-live">
+                    <div class="live-head">
+                        <div class="live-tag"><span class="dot"></span> SCHOLAR WORKFLOW</div>
+                        <i class="fa-solid fa-sliders" style="color:#8FC6EC; font-size:13px;"></i>
+                    </div>
+                    <h5>Sharia Advisory Workflow</h5>
+                    <div class="sub">From intake to scholar Fatwa issuance</div>
+                    <div class="workflow-steps-mini">
+                        <div class="wf-step-item">
+                            <span class="wf-step-num">01</span>
+                            <span class="wf-step-name">Mandate Qualification</span>
+                            <span class="wf-step-status"><i class="fa-solid fa-check"></i></span>
+                        </div>
+                        <div class="wf-step-item">
+                            <span class="wf-step-num">02</span>
+                            <span class="wf-step-name">IQMS™ Rule Validation</span>
+                            <span class="wf-step-status"><i class="fa-solid fa-check"></i></span>
+                        </div>
+                        <div class="wf-step-item active">
+                            <span class="wf-step-num">03</span>
+                            <span class="wf-step-name">Scholar Board Sign-off</span>
+                            <span class="wf-step-status">IN PROGRESS</span>
+                        </div>
+                    </div>
+                    <div class="row"><span class="k">Turnaround SLA</span><span class="v">72h Guaranteed</span></div>
+                    <div class="row"><span class="k">Audit Hash</span><span class="v">0x99B4...71C</span></div>
                 </div>
             </div>
         </div>

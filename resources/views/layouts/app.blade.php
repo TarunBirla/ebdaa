@@ -57,7 +57,6 @@
 
       --font-display: 'Space Grotesk', sans-serif;
       --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
-
       --radius-sm: 4px;
       --radius: 8px;
       --radius-lg: 16px;
@@ -82,6 +81,58 @@
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
       font-size: 16px;
+    }
+
+    /* Pulse Dot Animation for AI Status Indicators */
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.8); }
+    }
+
+    /* Global AI Signal & Status Chips */
+    .ai-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 12px;
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(22, 113, 196, 0.12);
+      border: 1px solid rgba(22, 113, 196, 0.3);
+      color: var(--blue);
+    }
+
+    .ai-chip.on-dark {
+      background: rgba(143, 198, 236, 0.1);
+      border-color: rgba(143, 198, 236, 0.25);
+      color: var(--sky);
+    }
+
+    .ai-chip .pulse-node {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4ADE80;
+      box-shadow: 0 0 8px #4ADE80;
+      animation: pulseDot 2s ease-in-out infinite;
+      flex: none;
+    }
+
+    /* Background Data Grid Effect */
+    .bg-grid-subtle {
+      background-image: linear-gradient(to right, rgba(10,61,107,0.05) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(10,61,107,0.05) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    .bg-grid-dark {
+      background-image: linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 32px 32px;
     }
 
     a {
