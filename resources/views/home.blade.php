@@ -5,7 +5,7 @@
 @push('styles')
 <style>
   /* ===== HERO / SLIDER ===== */
-  .hero{height:100vh; min-height:640px; position:relative; overflow:hidden; background:var(--blue-deep);}
+  .hero{height:100vh; max-height:520px; position:relative; overflow:hidden; background:var(--blue-deep);}
   .slide{
     position:absolute; inset:0; opacity:0; visibility:hidden;
     transition:opacity 1.1s ease;
